@@ -1,5 +1,6 @@
-import { Button } from "@/components/ui/button"
-import { ArrowRight } from "lucide-react"
+import { Button } from "@/components/ui/button";
+import { ArrowRight } from "lucide-react";
+import Link from "next/link";
 
 export function CTASection() {
   return (
@@ -10,14 +11,19 @@ export function CTASection() {
             ¿Tienes un problema real que resolver?
           </h2>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
-            No construimos software por construir. Diseñamos sistemas con criterio, pensados para durar y crecer sin
-            romperse. 
+            No construimos software por construir. Diseñamos sistemas con
+            criterio, pensados para durar y crecer sin romperse.
           </p>
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pt-4">
-            <Button size="lg" className="bg-foreground hover:bg-foreground/90 text-background group">
-              Hablemos de tu proyecto
-              <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
-            </Button>
+            <Link href="mailto:hello@yultic.dev?subject=Solicitar un demo">
+              <Button
+                size="lg"
+                className="bg-foreground hover:bg-foreground/90 text-background group text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-7"
+              >
+                Hablemos de tu proyecto
+                <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
+              </Button>
+            </Link>
             {/* dejo este boton por las dudas.
             <Button size="lg" variant="outline" asChild>
               <a href="https://www.skinnersv.net" target="_blank" rel="noopener noreferrer">
@@ -28,5 +34,5 @@ export function CTASection() {
         </div>
       </div>
     </section>
-  )
+  );
 }
