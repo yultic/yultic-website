@@ -111,7 +111,7 @@ export function HeroSection() {
               variants={itemVariants}
               className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto text-pretty leading-relaxed px-2"
             >
-              No vendemos promesas. Construimos software con intención, desde el
+              Construimos software con intención, desde el
               origen del problema. Cada línea de código tiene un propósito.
             </motion.p>
 
@@ -120,7 +120,7 @@ export function HeroSection() {
               className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 sm:pt-6"
             >
               <Link
-                href="mailto:juan_skinnersv@proton.me?subject=Solicitar un demo"
+                href="mailto:hello@yultic.dev?subject=Solicitar un demo"
               >
                 <Button
                   size="lg"

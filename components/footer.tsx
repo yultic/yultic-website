@@ -10,10 +10,10 @@ export function Footer() {
   }
 
   const socialLinks = [
-    { icon: Github, href: "#", label: "GitHub" },
+    { icon: Github, href: "https://github.com/yultic", label: "GitHub" },
     { icon: Twitter, href: "#", label: "Twitter" },
     { icon: Linkedin, href: "#", label: "LinkedIn" },
-    { icon: Mail, href: "#", label: "Email" },
+    { icon: Mail, href: "hello@yultic.dev", label: "Email" },
   ]
 
   return (

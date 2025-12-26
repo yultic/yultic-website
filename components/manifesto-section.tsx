@@ -26,8 +26,7 @@ export function ManifestoSection() {
                 </p>
 
                 <p>
-                  Experimentamos, fallamos, aprendemos y mejoramos. No por curiosidad vacía, sino para construir mejores
-                  soluciones que empoderan a las personas.
+                  Experimentamos, fallamos, aprendemos y mejoramos. No por curiosidad vacía, sino para crear soluciones que empoderan a las personas y empresas.
                 </p>
 
                 <p>

@@ -14,12 +14,12 @@ export function WhatWeDoSection() {
         <div className="grid md:grid-cols-2 gap-6 max-w-6xl mx-auto">
           {/* SkinnerSV - Software de RRHH */}
           <Card className="group hover:shadow-xl hover:border-foreground/20 transition-all duration-300 border-border bg-card relative overflow-hidden">
-            <div className="relative h-48 w-full overflow-hidden bg-muted">
+            <div className="relative h-48 w-full overflow-hidden bg-muted flex items-center justify-center p-6">
               <Image
                 src="/skinner-logo.png"
                 alt="SkinnerSV HR Software"
                 fill
-                className="object-cover group-hover:scale-105 transition-transform duration-500"
+                className="object-contain group-hover:scale-105 transition-transform duration-500"
               />
             </div>
             <CardContent className="p-8 space-y-4 relative">
@@ -36,8 +36,9 @@ export function WhatWeDoSection() {
                 <p className="text-sm text-muted-foreground font-medium">Software de Recursos Humanos</p>
               </div>
               <p className="text-muted-foreground leading-relaxed text-[15px]">
-                Gestión completa de RRHH pensada para crecer sin romperse. Controla asistencias, planillas, vacaciones y
-                más desde una plataforma intuitiva.
+                Plataforma de gestión administrativa inteligente que combina IA avanzada con gestión 
+                de talento humano. Optimiza procesos administrativos y 
+                fortalece la infraestructura tecnológica de las organizaciones.
               </p>
               <div className="pt-2">
                 <Button variant="ghost" className="px-0 group/btn" asChild>
@@ -155,13 +156,6 @@ export function WhatWeDoSection() {
               </ul>
             </CardContent>
           </Card>
-        </div>
-
-        <div className="max-w-2xl mx-auto mt-12 text-center">
-          <p className="text-sm text-muted-foreground">
-            Nos especializamos en desarrollo web y software de escritorio. No desarrollamos aplicaciones móviles
-            nativas.
-          </p>
         </div>
       </div>
     </section>

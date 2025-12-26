@@ -11,18 +11,19 @@ export function CTASection() {
           </h2>
           <p className="text-xl text-muted-foreground text-pretty leading-relaxed">
             No construimos software por construir. Diseñamos sistemas con criterio, pensados para durar y crecer sin
-            romperse. Hablemos de tu proyecto.
+            romperse. 
           </p>
           <div className="flex flex-col sm:flex-row items-center sm:items-start gap-4 pt-4">
             <Button size="lg" className="bg-foreground hover:bg-foreground/90 text-background group">
-              Conversemos
+              Hablemos de tu proyecto
               <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform" />
             </Button>
+            {/* dejo este boton por las dudas.
             <Button size="lg" variant="outline" asChild>
               <a href="https://www.skinnersv.net" target="_blank" rel="noopener noreferrer">
                 Ver SkinnerSV
               </a>
-            </Button>
+            </Button> */}
           </div>
         </div>
       </div>
