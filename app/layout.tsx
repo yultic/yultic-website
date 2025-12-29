@@ -2,6 +2,7 @@ import type React from "react"
 import type { Metadata } from "next"
 import { Geist, Geist_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
+import { GoogleAnalytics } from "@/components/google-analytics"
 import "./globals.css"
 
 const _geist = Geist({ subsets: ["latin"] })
@@ -39,6 +40,7 @@ export default function RootLayout({
         {/* Global background glows inspired by Linear */}
         <div className="pointer-events-none fixed inset-0 -z-10 [background:radial-gradient(1000px_600px_at_20%_-10%,rgba(99,102,241,0.20),transparent_60%),radial-gradient(1000px_600px_at_80%_110%,rgba(139,92,246,0.18),transparent_60%)]" />
         {children}
+        <GoogleAnalytics />
         <Analytics />
       </body>
     </html>
