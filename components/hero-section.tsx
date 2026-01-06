@@ -126,7 +126,7 @@ export function HeroSection() {
                   size="lg"
                   className="bg-foreground hover:bg-foreground/90 text-background group text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-7"
                 >
-                  Conversemos
+                   Hablemos de tu proyecto
                   <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
                 </Button>
               </Link>

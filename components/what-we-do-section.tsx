@@ -28,7 +28,7 @@ export function WhatWeDoSection() {
               </div>
               <div className="space-y-2">
                 <div className="flex items-center gap-2">
-                  <h3 className="text-xl font-semibold">SkinnerSV</h3>
+                  <h3 className="text-xl font-semibold">Skinner</h3>
                   <span className="text-xs px-2 py-0.5 rounded-full bg-muted text-muted-foreground font-medium">
                     Producto
                   </span>

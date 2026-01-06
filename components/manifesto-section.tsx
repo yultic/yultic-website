@@ -33,10 +33,6 @@ export function ManifestoSection() {
                   Nacimos en <strong className="text-foreground">El Salvador</strong>, pero construimos con estándares
                   globales. Nuestro origen es parte de nuestra identidad, no un límite para nuestra ambición.
                 </p>
-
-                <p className="text-foreground font-medium pt-4">
-                  En Yultic no vendemos promesas. Construimos software con intención, pensado para durar.
-                </p>
               </div>
             </div>
           </div>
