@@ -1,3 +1,4 @@
+// lib/prisma.ts
 import { PrismaClient } from '@prisma/client'
 import { PrismaPg } from '@prisma/adapter-pg'
 import { Pool } from 'pg'
@@ -7,17 +8,25 @@ const globalForPrisma = globalThis as unknown as {
   pool: Pool | undefined
 }
 
+// Validar DATABASE_URL
+const databaseUrl = process.env.DATABASE_URL
+if (!databaseUrl) {
+  throw new Error('DATABASE_URL environment variable is not set')
+}
+
+// Crear pool de PostgreSQL
 const pool =
   globalForPrisma.pool ??
   new Pool({
-    connectionString: process.env.DATABASE_URL,
+    connectionString: databaseUrl,
   })
 
 if (process.env.NODE_ENV !== 'production') globalForPrisma.pool = pool
 
+// Crear adapter
 const adapter = new PrismaPg(pool)
 
-
+// Crear cliente de Prisma
 export const prisma =
   globalForPrisma.prisma ??
   new PrismaClient({
