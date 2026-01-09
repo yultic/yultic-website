@@ -1,11 +1,12 @@
 import { Logo } from "./logo"
-import { FaFacebook, FaInstagram, FaXTwitter, FaGithub } from "react-icons/fa6"
+import { FaFacebook, FaInstagram, FaXTwitter, FaGithub, FaLinkedin } from "react-icons/fa6"
 
 export function Footer() {
   const socialLinks = [
-    { icon: FaFacebook, href: "https://facebook.com/yultic", label: "Facebook" },
-    { icon: FaInstagram, href: "https://instagram.com/yultic", label: "Instagram" },
-    { icon: FaXTwitter, href: "https://x.com/yultic", label: "X" },
+    { icon: FaLinkedin, href: "https://www.linkedin.com/company/yultic/?viewAsMember=true", label: "LinkedIn" },
+    { icon: FaFacebook, href: "https://www.facebook.com/profile.php?id=61586155982396&sk=about", label: "Facebook" },
+    { icon: FaInstagram, href: "https://www.instagram.com/yultic.sv/", label: "Instagram" },
+    { icon: FaXTwitter, href: "https://x.com/yulticsv", label: "X" },
     { icon: FaGithub, href: "https://github.com/yultic", label: "GitHub" },
   ]
 
