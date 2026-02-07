@@ -1,13 +1,30 @@
 import type React from "react"
 import type { Metadata } from "next"
-import { Geist, Geist_Mono } from "next/font/google"
+import { Syne, IBM_Plex_Sans, IBM_Plex_Mono } from "next/font/google"
 import { Analytics } from "@vercel/analytics/next"
 import { GoogleAnalytics } from "@/components/google-analytics"
 import { ChatWidget } from "@/components/ChatWidget";
 import "./globals.css"
 
-const _geist = Geist({ subsets: ["latin"] })
-const _geistMono = Geist_Mono({ subsets: ["latin"] })
+const syne = Syne({
+  subsets: ["latin"],
+  variable: "--font-syne",
+  display: "swap",
+})
+
+const ibmPlexSans = IBM_Plex_Sans({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600", "700"],
+  variable: "--font-ibm-plex-sans",
+  display: "swap",
+})
+
+const ibmPlexMono = IBM_Plex_Mono({
+  subsets: ["latin"],
+  weight: ["300", "400", "500", "600"],
+  variable: "--font-ibm-plex-mono",
+  display: "swap",
+})
 
 export const metadata: Metadata = {
   title: "Yultic - Tecnología con raíz. Sistemas con propósito.",
@@ -37,9 +54,10 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="es" className="dark scroll-smooth">
-      <body className={`font-sans antialiased`}>
-        {/* Global background glows inspired by Linear */}
-        <div className="pointer-events-none fixed inset-0 -z-10 [background:radial-gradient(1000px_600px_at_20%_-10%,rgba(99,102,241,0.20),transparent_60%),radial-gradient(1000px_600px_at_80%_110%,rgba(139,92,246,0.18),transparent_60%)]" />
+      <body className={`${syne.variable} ${ibmPlexSans.variable} ${ibmPlexMono.variable} font-sans antialiased grain`}>
+        {/* Global grid background with subtle red glow */}
+        <div className="pointer-events-none fixed inset-0 -z-10 bg-grid" />
+        <div className="pointer-events-none fixed bottom-0 right-0 -z-10 h-[600px] w-[600px] bg-[radial-gradient(ellipse_at_center,oklch(0.60_0.24_25/0.06),transparent_70%)]" />
         {children}
         <GoogleAnalytics />
         <Analytics />
