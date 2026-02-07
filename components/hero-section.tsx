@@ -37,7 +37,7 @@ function TypewriterText({ text, delay = 0 }: { text: string; delay?: number }) {
   return (
     <span>
       {displayedText}
-      {!finished && <span className="animate-pulse">|</span>}
+      {!finished && <span className="text-accent-red animate-blink">_</span>}
     </span>
   );
 }
@@ -50,21 +50,18 @@ export function HeroSection() {
     offset: ["start start", "end start"],
   });
 
-  // Texto se desvanece cuando scrolleas
   const textOpacity = useTransform(scrollYProgress, [0, 0.15, 0.3], [1, 0.5, 0]);
   const textY = useTransform(scrollYProgress, [0, 0.3], [0, -100]);
 
-  // Imágenes aparecen después
-  const imageOpacity = useTransform(scrollYProgress, [0.25, 0.45], [0, 1]);
-  const imageY = useTransform(scrollYProgress, [0.25, 0.5], [150, 0]);
+  // Images now use clip-path reveal driven by scroll progress
 
   const containerVariants = {
     hidden: { opacity: 0 },
     visible: {
       opacity: 1,
       transition: {
-        staggerChildren: 0.15,
-        delayChildren: 0.1,
+        staggerChildren: 0.06,
+        delayChildren: 0.05,
       },
     },
   };
@@ -75,8 +72,8 @@ export function HeroSection() {
       opacity: 1,
       y: 0,
       transition: {
-        duration: 0.6,
-        ease: [0.22, 1, 0.36, 1] as const,
+        duration: 0.4,
+        ease: [0.76, 0, 0.24, 1] as const,
       },
     },
   };
@@ -88,61 +85,69 @@ export function HeroSection() {
       className="relative min-h-[250vh]"
     >
       <div className="sticky top-0 h-screen flex flex-col items-center justify-center overflow-hidden">
-        {/* Texto - se va hacia arriba y desaparece */}
+        {/* Texto - alineado a la izquierda con borde rojo */}
         <motion.div
           variants={containerVariants}
           initial="hidden"
           animate="visible"
           style={{ opacity: textOpacity, y: textY }}
-          className="absolute inset-0 flex items-center justify-center z-10"
+          className="absolute inset-0 flex items-center z-10"
         >
-          <div className="container mx-auto px-4 sm:px-6 space-y-6 sm:space-y-8 text-center max-w-5xl">
-            <motion.h1
-              variants={itemVariants}
-              className="pt-20 text-4xl sm:text-5xl md:text-6xl lg:text-7xl xl:text-8xl font-bold tracking-tight leading-[1.1]"
-            >
-              <span className="block">Tecnología con raíz.</span>
-              <span className="block text-muted-foreground">
-                <TypewriterText text="Sistemas con propósito." delay={800} />
-              </span>
-            </motion.h1>
-
-            <motion.p
-              variants={itemVariants}
-              className="text-lg sm:text-xl md:text-2xl lg:text-3xl text-muted-foreground max-w-4xl mx-auto text-pretty leading-relaxed px-2"
-            >
-              Construimos software con intención, desde el
-              origen del problema. Cada línea de código tiene un propósito.
-            </motion.p>
-
-            <motion.div
-              variants={itemVariants}
-              className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-4 sm:pt-6"
-            >
-              <Link
-                href="mailto:hello@yultic.dev?subject=Solicitar un demo"
+          <div className="container mx-auto px-4 sm:px-6">
+            <div className="max-w-5xl border-l-2 border-accent-red pl-6 sm:pl-8 md:pl-12 space-y-6 sm:space-y-8">
+              {/* Metadata line */}
+              <motion.p
+                variants={itemVariants}
+                className="font-mono text-xs sm:text-sm text-muted-foreground tracking-widest uppercase"
               >
-                <Button
-                  size="lg"
-                  className="bg-foreground hover:bg-foreground/90 text-background group text-base sm:text-lg px-6 sm:px-8 py-6 sm:py-7"
+                // Yultic Lab — El Salvador — 2026
+              </motion.p>
+
+              <motion.h1
+                variants={itemVariants}
+                className="font-display text-5xl sm:text-6xl md:text-7xl lg:text-8xl xl:text-[9rem] font-bold tracking-tighter leading-[0.9]"
+              >
+                <span className="block">Tecnología</span>
+                <span className="block">con raíz.</span>
+                <span className="block text-muted-foreground text-[0.65em]">
+                  <TypewriterText text="Sistemas con propósito." delay={800} />
+                </span>
+              </motion.h1>
+
+              <motion.p
+                variants={itemVariants}
+                className="text-lg sm:text-xl md:text-2xl text-muted-foreground max-w-2xl text-pretty leading-relaxed"
+              >
+                Construimos software con intención, desde el
+                origen del problema. Cada línea de código tiene un propósito.
+              </motion.p>
+
+              <motion.div
+                variants={itemVariants}
+                className="flex items-start gap-4 pt-2"
+              >
+                <Link
+                  href="mailto:hello@yultic.dev?subject=Solicitar un demo"
                 >
-                   Hablemos de tu proyecto
-                  <ArrowRight className="ml-2 size-5 group-hover:translate-x-1 transition-transform" />
-                </Button>
-              </Link>
-            </motion.div>
+                  <Button
+                    size="lg"
+                    className="bg-accent-red hover:bg-accent-red-dim text-white font-mono text-sm uppercase tracking-widest px-8 py-7 group"
+                  >
+                    Hablemos de tu proyecto
+                    <ArrowRight className="ml-2 size-4 group-hover:translate-x-1 transition-transform duration-150" />
+                  </Button>
+                </Link>
+              </motion.div>
+            </div>
           </div>
         </motion.div>
 
-        {/* Imágenes - aparecen desde abajo */}
-        <motion.div
-          style={{ opacity: imageOpacity, y: imageY }}
-          className="absolute inset-0 flex items-center justify-center z-0"
-        >
+        {/* Imagenes - clip-path reveal on scroll */}
+        <div className="absolute inset-0 flex items-center justify-center z-0">
           <div className="w-full max-w-6xl px-4">
-            <HeroScreens />
+            <HeroScreens scrollProgress={scrollYProgress} />
           </div>
-        </motion.div>
+        </div>
       </div>
     </section>
   );

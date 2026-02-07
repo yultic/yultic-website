@@ -11,17 +11,17 @@ export function Footer() {
   ]
 
   return (
-    <footer className="border-t border-border/40 bg-background">
+    <footer className="border-t border-border bg-background">
       <div className="container mx-auto px-4 sm:px-6 py-12 md:py-16">
         <div className="flex flex-col sm:flex-row items-center justify-between gap-6 sm:gap-8">
           <div className="flex items-center gap-6 sm:gap-8">
             <Logo />
-            <p className="text-sm text-muted-foreground">
-              © {new Date().getFullYear()} Yultic. Todos los derechos reservados.
+            <p className="font-mono text-xs text-muted-foreground tracking-widest uppercase">
+              Tecnologia con raiz — {new Date().getFullYear()}
             </p>
           </div>
 
-          <div className="flex items-center gap-4">
+          <div className="flex items-center gap-5">
             {socialLinks.map((social) => (
               <a
                 key={social.label}
@@ -29,9 +29,9 @@ export function Footer() {
                 aria-label={social.label}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center justify-center size-15 rounded-lg border border-border/40 hover:border-border hover:bg-muted/50 text-muted-foreground hover:text-foreground transition-all duration-200 group"
+                className="text-muted-foreground hover:text-accent-red transition-colors duration-150"
               >
-                <social.icon className="size-5 group-hover:scale-110 transition-transform duration-200" />
+                <social.icon className="size-5" />
               </a>
             ))}
           </div>

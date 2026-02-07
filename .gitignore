@@ -60,3 +60,6 @@ wiki.md
 # SÍ ignorar: cliente generado (ya en node_modules)
 *.db
 *.db-journal
+
+# agents
+.agents
